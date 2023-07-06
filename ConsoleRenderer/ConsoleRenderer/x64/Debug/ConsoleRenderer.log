@@ -1,0 +1,12 @@
+﻿  app.cpp
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(19,31): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(19,24): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(20,30): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(20,23): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(53,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(54,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(87,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(88,10): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(89,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(93,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  ConsoleRenderer.vcxproj -> C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\x64\Debug\ConsoleRenderer.exe
