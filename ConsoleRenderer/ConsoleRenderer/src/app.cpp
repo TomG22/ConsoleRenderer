@@ -9,34 +9,18 @@
 const float PI = 3.14159265f;
 
 const int REFRESH_TIME = 20; //ms
-const float TIME_RANGE = 2 * PI; // unregulated units; 0 = still-image
-const float TIME_STEP = .05;
-const float CALC_STEP = 0.01f; // lower value -> higher calculation precision
+const float TIME_RANGE = 2 * PI; // unregulated units; 0 = image
+const float TIME_STEP = .2;
+const float CALC_STEP = 0.04f; // lower value -> higher calculation precision
 
-const std::string FUNCTION = "VertexObject";
+const char EMPTY_CHAR = ' ';
+
+//const std::string FUNCTION = "ParamTorus";
 
 const int RADIUS = 31;
 
 const int INNER_RADIUS = floor(RADIUS * .5);
 const int TUBE_RADIUS = floor(RADIUS * .25);
-
-void fillPos(int x, int y, int z, std::string* buffer) {
-	if (x >= 0 && y >= 0 && x < RADIUS * 2 && y < RADIUS) {
-		char map[] = "-=+^#%@";
-		int div = floor((z / float(RADIUS * 2 + 1)) * (sizeof(map) - 1));
-
-		if (buffer[y][x] != '*') {
-			for (int i = 0; i < sizeof(map); i++) {
-				if (buffer[y][x] == map[i]) {
-					if (div < i) {
-						div = i;
-					}
-				}
-			}
-		}
-		buffer[y][x] = map[div];
-	}
-}
 
 float(*MatRx (float theta))[3] {
 	float Rx[3][3] = {
@@ -90,14 +74,29 @@ float* MatTransform(float vector[3], float time) {
 	return transformed_vector_2;
 }
 
-//int y = floor(yStart + (yEnd - yStart) * (xEnd - xStart) / (x - xStart)); // y(x) . . . // int x = floor(xStart + (xStart - xEnd) * (y - yStart) / (yEnd - yStart)) // x(y)
-void connectVertices(int vertex1[3], int vertex2[3], std::string* buffer) {
+void FillPos(int x, int y, int z, std::string* buffer) {
+	if (x >= 0 && y >= 0 && x < RADIUS * 2 && y < RADIUS) {
+		char depthMap[] = "-=+^#%@";
+		int depthIndex = floor((z / float(RADIUS * 2 + 1)) * (sizeof(depthMap) - 1));
+		for (int i = 0; i < sizeof(depthMap); i++) {
+			if (buffer[y][x] == depthMap[i]) {
+				if (depthIndex < i) {
+					depthIndex = i;
+				}
+			}
+		}
+		buffer[y][x] = depthMap[depthIndex];
+	}
+}
+
+void ConnectVertices(int vertex1[3], int vertex2[3], std::string* buffer) {
 	int xStart = vertex1[0], xEnd = vertex2[0], yStart = vertex1[1], yEnd = vertex2[1], zStart = vertex1[2], zEnd = vertex2[2];
+	
 	if (yStart < yEnd) {
 		for (int yIdx = yStart; yIdx < abs(yEnd - yStart) + yStart; yIdx++) {
 			int x = floor(xStart + (xEnd - xStart) * (yIdx - yStart) / (yEnd - yStart));
 			int z = floor(zStart + (zEnd - zStart) * (yIdx - yStart) / (yEnd - yStart));
-			fillPos(x, yIdx, z, buffer);
+			FillPos(x, yIdx, z, buffer);
 		}
 	}
 	else {
@@ -105,7 +104,7 @@ void connectVertices(int vertex1[3], int vertex2[3], std::string* buffer) {
 			int x = floor(xStart + (xEnd - xStart) * (yIdx - yStart) / (yEnd - yStart));
 			int z = floor(zStart + (zEnd - zStart) * (yIdx - yStart) / (yEnd - yStart));
 
-			fillPos(x, yIdx, z, buffer);
+			FillPos(x, yIdx, z, buffer);
 		}
 	}
 
@@ -115,7 +114,7 @@ void connectVertices(int vertex1[3], int vertex2[3], std::string* buffer) {
 			int y = floor(yStart + (yEnd - yStart) * (xIdx - xStart) / (xEnd - xStart));
 			int z = floor(zStart + (zEnd - zStart) * (xIdx - xStart) / (xEnd - xStart));
 
-			fillPos(xIdx, y, z, buffer);
+			FillPos(xIdx, y, z, buffer);
 		}
 	}
 	else {
@@ -123,7 +122,7 @@ void connectVertices(int vertex1[3], int vertex2[3], std::string* buffer) {
 			int y = floor(yStart + (yEnd - yStart) * (xIdx - xStart) / (xEnd - xStart));
 			int z = floor(zStart + (zEnd - zStart) * (xIdx - xStart) / (xEnd - xStart));
 
-			fillPos(xIdx, y, z, buffer);
+			FillPos(xIdx, y, z, buffer);
 		}
 	}
 
@@ -156,9 +155,12 @@ int indices[12][3] = {
 	{4,0,1}
 };
 
-
-void rasterizeTriangles(int* vertexBuffer, int* indexBuffer, int* buffer) {
-	
+void RasterizeTriangles(int(* vertexBuffer)[3], std::string* buffer) {
+	for (int i = 0; i < sizeof(indices) / sizeof(indices[0]); i++) {
+		ConnectVertices(vertexBuffer[indices[i][0]], vertexBuffer[indices[i][1]], buffer);
+		ConnectVertices(vertexBuffer[indices[i][1]], vertexBuffer[indices[i][2]], buffer);
+		ConnectVertices(vertexBuffer[indices[i][2]], vertexBuffer[indices[i][0]], buffer);
+	}
 }
 
 std::string VertexObject(float time) {
@@ -187,25 +189,13 @@ std::string VertexObject(float time) {
 		vertexBufferLength += 1;
 
 
-		fillPos(x, y, z, buffer);
+		FillPos(x, y, z, buffer);
 		int half_radius = floor(RADIUS * .5);
 		buffer[half_radius][RADIUS] = '+';
 		buffer[y][x] = std::to_string(vertexBufferLength - 1)[0];
 	}
 
-	// rasterizeTriangles(vertexBuffer, indexBuffer, buffer)
-	// connectVertices(vertexBuffer[0], vertexBuffer[1], buffer);
-	// connectVertices(vertexBuffer[0], vertexBuffer[2], buffer);
-	// connectVertices(vertexBuffer[0], vertexBuffer[4], buffer);
-	// connectVertices(vertexBuffer[1], vertexBuffer[5], buffer);
-	// connectVertices(vertexBuffer[1], vertexBuffer[3], buffer);
-	// connectVertices(vertexBuffer[2], vertexBuffer[3], buffer);
-	// connectVertices(vertexBuffer[2], vertexBuffer[6], buffer);
-	// connectVertices(vertexBuffer[3], vertexBuffer[7], buffer);
-	// connectVertices(vertexBuffer[4], vertexBuffer[5], buffer);
-	// connectVertices(vertexBuffer[4], vertexBuffer[6], buffer);
-	// connectVertices(vertexBuffer[5], vertexBuffer[7], buffer);
-	// connectVertices(vertexBuffer[6], vertexBuffer[7], buffer);
+	RasterizeTriangles(vertexBuffer, buffer);
 
 	std::string outputString;
 	for (int i = 0; i < RADIUS; i++) {
@@ -265,7 +255,7 @@ std::string ParamTorus(float time) {
 	for (int i = 0; i < RADIUS; i++) {
 		std::string bufferRow = "";
 		for (int j = 0; j < RADIUS * 2; j++) {
-			bufferRow.push_back('*');
+			bufferRow.push_back(' ');
 		}
 		buffer[i] = bufferRow;
 	}
@@ -276,25 +266,18 @@ std::string ParamTorus(float time) {
 				time = 1.0f;
 			}
 
-			int x = floor((INNER_RADIUS + TUBE_RADIUS * cosf(v)) * cosf(u) + RADIUS);
-			int y = floor(.5 * (INNER_RADIUS + TUBE_RADIUS * cosf(v)) * sinf(u) + RADIUS * .5);
-			int z = floor(TUBE_RADIUS * sinf(v) + TUBE_RADIUS);
+			int x = floor((INNER_RADIUS + TUBE_RADIUS * cosf(v)) * cosf(u));
+			int y = floor((INNER_RADIUS + TUBE_RADIUS * cosf(v)) * sinf(u));
+			int z = floor(TUBE_RADIUS * sinf(v));
 
-			if (x >= 0 && y >= 0 && x < RADIUS * 2 && y < RADIUS) {
-				char map[]  = "-=+*#%@";
-				int div = floor((z / float(TUBE_RADIUS*2 + 1)) * (sizeof(map)-1));
+			float vertex[3] = {x,y,z};
+			float* transformedVertex = MatTransform(vertex, time);
 
-				if (buffer[y][x] != '*') {
-					for (int i = 0; i < sizeof(map); i++) {
-						if (buffer[y][x] == map[i]) {
-							if (div < i) {
-								div = i;
-							}
-						}
-					}
-				}
-				buffer[y][x] = map[div];
-			}
+			x = floor(transformedVertex[0] + RADIUS);
+			y = floor((transformedVertex[1] + RADIUS) * .5);
+			z = floor(transformedVertex[2] + RADIUS - TUBE_RADIUS);
+
+			FillPos(x, y, z, buffer);
 		}
 	}
 
@@ -325,14 +308,14 @@ void DrawLoop() {
 				time = TIME_RANGE;
 			}
 			//std::cout << "Rendering \"" << FUNCTION << "\" (" << REFRESH_TIME << "ms Video | Time: " << time << "):\n";
-			std::cout << VertexObject(time);
+			std::cout << ParamTorus(time); // Call draw function here
 			std::this_thread::sleep_for(std::chrono::milliseconds(REFRESH_TIME));
 			Clear();
 			time += TIME_STEP * inc;
 		}
 	} else {
-		std::cout << "Rendered \"" + FUNCTION << "\" (Image):\n";
-		std::cout << VertexObject(0);
+		//std::cout << "Rendered \"" + FUNCTION << "\" (Image):\n";
+		std::cout << ParamTorus(0); // Call draw function here
 	}
 }
 
