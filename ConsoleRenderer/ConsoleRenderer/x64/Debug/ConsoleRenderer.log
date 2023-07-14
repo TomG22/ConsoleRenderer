@@ -1,22 +1,30 @@
 ﻿  app.cpp
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(12,28): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(19,31): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(19,24): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(20,30): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(20,23): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(98,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(99,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(100,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(104,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(117,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(156,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(157,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(191,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(192,10): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(193,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(197,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(46): warning C4172: returning address of local variable or temporary: Rz
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(37): warning C4172: returning address of local variable or temporary: Ry
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(28): warning C4172: returning address of local variable or temporary: Rx
-C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(71): warning C4172: returning address of local variable or temporary: transformed_vector_2
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(13,28): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(20,31): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(20,24): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(21,30): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(21,23): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(26,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(98,10): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(99,10): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(105,10): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(106,10): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(115,10): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(116,10): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(123,10): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(124,10): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(180,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(181,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(182,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(191,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(249,9): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(250,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(284,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(285,10): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(286,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(290,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(56): warning C4172: returning address of local variable or temporary: Ry
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(47): warning C4172: returning address of local variable or temporary: Rx
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(65): warning C4172: returning address of local variable or temporary: Rz
+C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\ConsoleRenderer\src\app.cpp(90): warning C4172: returning address of local variable or temporary: transformed_vector_2
   ConsoleRenderer.vcxproj -> C:\Users\giall\Desktop\Programming\C++\ConsoleRenderer\ConsoleRenderer\x64\Debug\ConsoleRenderer.exe
